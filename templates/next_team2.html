@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center g-4">
+        <div class="container-md bg-white mt-5 p-5 rounded-4 shadow-lg bg-secondary">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                <div class="mx-auto max-w-screen-sm text-center">
+
+
+<h2>გუნდი: {{ team }}</h2>
+<h2>სიტყვა: {{ word }}</h2>
+
+<div id="timer">00:59</div>
+<button onclick="location.href='{{ url_for('result', result='guessed') }}'"type="button" class="btn btn-warning">✔ გამოიცნო</button>
+<button onclick="location.href='{{ url_for('result', result='not-guessed') }}'"type="button" class="btn btn-dark">✘ ვერ გამოიცნო</button>
+
+
+
+<script>
+
+    let seconds = 59;
+    const timer = document.getElementById('timer');
+    const interval = setInterval(() => {
+      timer.textContent = '00:' + (seconds < 10 ? '0' + seconds : seconds);
+      if (seconds === 0) {
+        clearInterval(interval);
+        window.location.href = "{{ url_for('result', result='not-guessed') }}";
+      }
+      seconds--;
+    }, 1000);
+</script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

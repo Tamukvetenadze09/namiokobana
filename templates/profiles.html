@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% block title %}Profiles{% endblock %}
+
+{% block content %}
+    {% for profile in profiles %}
+        <div class="mb-3 row">
+            <h4>Name: {{ profile['username'] }}</h4>
+        </div>
+        <div class="mb-3 row">
+            <h4>Phone: {{ profile['password'] }}</h4>
+        </div>
+        <div class="mb-3 row">
+            <h4>Gender: {{ profile['gender'] }}</h4>
+        </div>
+        <div class="mb-3 row">
+            <img src="/static/images/{{ profile['image'] }}" alt="Profile Image" />
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}

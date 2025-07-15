@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}თამაში{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center g-4">
+        <div class="container-md bg-white mt-5 p-5 rounded-4 shadow-lg bg-secondary">
+            <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                <div class="mx-auto max-w-screen-sm text-center">
+<div class="container text-center py-5">
+    <h1 class="mb-4">თამაში დაიწყო!</h1>
+
+    <h3>გუნდი 1 <span class="text-primary">{{ team1 }}</span></h3>
+    <h3>გუნდი 2 <span class="text-success">{{ team2 }}</span></h3>
+
+    <hr class="my-4">
+
+    <h4>კატეგორია: <span class="text-info">{{ category }}</span></h4>
+    <h2 class="display-5 mt-4"> {{ hint }}</h2>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+    <form method="GET" action="{{ url_for('sports', team1=team1, team2=team2) }}">
+        <button type="submit" class="btn btn-warning">სპორტი</button>
+    </form>
+    <form method="GET" action="{{ url_for('history', team1=team1, team2=team2) }}">
+        <button type="submit" class="btn btn-warning">ისტორია</button>
+    </form>
+    <form method="GET" action="{{ url_for('music', team1=team1, team2=team2) }}">
+        <button type="submit" class="btn btn-warning">მუსიკა</button>
+    </form>
+    <form method="GET" action="{{ url_for('travel', team1=team1, team2=team2) }}">
+        <button type="submit" class="btn btn-warning">მოგზაურობა</button>
+    </form>
+</div>
+
+
+
+</div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

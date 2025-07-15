@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up Page{% endblock %}
+
+{% block content %}
+<form method="POST" action="{{ url_for('signup') }}">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.username(class="form-control", placeholder="Username") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.password(class="form-control", placeholder="Enter password") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.birthdate(class="form-control", type="date") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.email(class="form-control", type="email",  placeholder="Email") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.country(class="form-select") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.gender(class="form-select") }}
+    </div>
+
+    <button type="submit" class="btn btn-warning">Sign up</button>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center g-4">
+        <div class="container-md bg-white mt-5 p-5 rounded-4 shadow-lg bg-secondary">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                <div class="mx-auto max-w-screen-sm text-center">
+
+                    <form method="POST" action="{{ url_for('game') }}" style="margin-top: 50px;">
+                        <p style="font-size: 24px; margin-bottom: 20px;">ვინ აგრძელებს თამაშს?</p>
+
+                        <div style="display: flex; justify-content: center; gap: 20px;">
+                            <button type="submit" name="team" value="0" class="btn btn-warning" style="font-size: 18px; padding: 10px 25px;">
+                                გუნდი 1
+                            </button>
+                            <button type="submit" name="team" value="1" class="btn btn-warning" style="font-size: 18px; padding: 10px 25px;">
+                                გუნდი 2
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+xt-center"

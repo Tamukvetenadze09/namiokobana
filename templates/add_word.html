@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+    <h2 class="mb-4">დაამატე სიტყვა თამაშისთვის</h2>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.text(class="form-control", placeholder="მაგ. კომპიუტერი") }}
+        </div>
+        {{ form.submit(class="btn btn-warning") }}
+    </form>
+
+    <hr class="my-4">
+
+    <h4>დამატებული სიტყვები:</h4>
+    <ul class="list-group">
+        {% for word in words %}
+            <li class="list-group-item">{{ word.text }}</li>
+        {% else %}
+            <li class="list-group-item">სიტყვები ჯერ არ დამატებულა.</li>
+        {% endfor %}
+
+    </ul>
+</div>
+
+<div class="d-grid gap-2">
+<button class="btn btn-warning" onclick="location.href='{{ url_for('add_wordplay') }}'"> Start playing</button>
+</div>
+
+
+{% endblock %}

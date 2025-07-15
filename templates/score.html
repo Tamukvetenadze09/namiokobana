@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1 class="display-4 text-success">თამაში დასრულდა!</h1>
+    <p class="lead mt-4">შედეგები:</p>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-4">
+            <div class="card shadow-lg border-primary mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ teams[0] }}</h3>
+                    <p class="card-text display-5">{{ scores[0] }} ქულა</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg border-danger mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-danger">{{ teams[1] }}</h3>
+                    <p class="card-text display-5">{{ scores[1] }} ქულა</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if scores[0] > scores[1] %}
+        <h2 class="text-primary mt-4">გაიმარჯვა {{ teams[0] }} გუნდმა!</h2>
+    {% elif scores[1] > scores[0] %}
+        <h2 class="text-danger mt-4">გაიმარჯვა {{ teams[1] }} გუნდმა!</h2>
+    {% else %}
+        <h2 class="mt-4 text-warning">ორივე გუნდი გამარჯვებულია!</h2>
+    {% endif %}
+
+    <div class="mt-5">
+        <a href="{{ url_for('home') }}" class="btn btn-secondary btn-lg">მთავარ გვერდზე დაბრუნება</a>
+    </div>
+</div>
+{% endblock %}

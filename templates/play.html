@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}თამაში{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center g-4">
+        <div class="container-md bg-white mt-5 p-5 rounded-4 shadow-lg bg-secondary">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                <div class="mx-auto max-w-screen-sm text-center">
+
+                    <form method="POST">
+                        {{ form.hidden_tag() }}
+
+                        <div class="mb-3">
+                            {{ form.team1.label(class="form-label") }}
+                            {{ form.team1(class="form-control") }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.team2.label(class="form-label") }}
+                            {{ form.team2(class="form-control") }}
+                        </div>
+
+                        {{ form.submit(class="btn btn-warning") }}
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
