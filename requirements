@@ -1,5 +1,5 @@
 Flask
-Flask-SQLAlchemt
+Flask-SQLAlchemy
 Flask-Login
 Flask-WTF
 gunicorn
