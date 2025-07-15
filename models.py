@@ -1,9 +1,15 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from extensions import db, login_manager
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_sqlalchemy import SQLAlchemy
 
 
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # ან შენი URL
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
